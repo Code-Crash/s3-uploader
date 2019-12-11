@@ -19,7 +19,7 @@ process.stdin.setEncoding('utf-8');
 // Declare useful variables.
 let pathSet = false; // default false
 let confirm = '';
-let isDeploy = false; // default false
+let isReady = false; // default false
 let isSameStructure = false; // default false
 
 /**
@@ -51,10 +51,10 @@ function lineIterator() {
             } else if (pathSet && confirm) {
                 if (confirm === 'Y' || confirm === 'y') {
                     isSameStructure = false;
-                    isDeploy = true;
+                    isReady = true;
                 } else {
                     isSameStructure = true;
-                    isDeploy = true;
+                    isReady = true;
                 }
                 rl.close();
             }
@@ -71,8 +71,8 @@ function lineIterator() {
 
 // Handle command line stuff then call deploy method.
 lineIterator().then(function () {
-    if (isDeploy) {
-        _deploy();
+    if (isReady) {
+        initiate();
     } else {
         console.log('\nOkay, We are stopping upload.\n');
     }
@@ -82,7 +82,7 @@ lineIterator().then(function () {
 /**
  * @description - This function will help you to do the deployment your files on s3 bucket.
  */
-function _deploy() {
+function initiate() {
 
     if (!process.env.UPLOAD_TO_S3_PATH) {
         console.log('Folder Path to be uploaded is is missing!');
