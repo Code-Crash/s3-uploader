@@ -1,0 +1,20 @@
+{
+  "name": "s3-uploader",
+  "version": "1.0.0",
+  "description": "This package will contains the scripts which will help you to upload the any number of files to your S3 bucket.",
+  "main": "scripts/upload.js",
+  "scripts": {
+    "start": "node scripts/upload.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "code-crash <pravintiwari1992@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.587.0",
+    "chalk": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "dotenv-expand": "^5.1.0",
+    "mime-types": "^2.1.25",
+    "winston": "^3.2.1"
+  }
+}
